@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xổ Số Mệnh Đề — Blueprint Premium</title>
+<style>
+:root {
+  --bg: #0D0D0D;
+  --card: #1A1A2E;
+  --card-alt: #16213E;
+  --accent: #E94560;
+  --gold: #FFD700;
+  --cyan: #00D4FF;
+  --green: #00E676;
+  --orange: #FF9100;
+  --purple: #BB86FC;
+  --text: #E8E8E8;
+  --text-dim: #888;
+  --border: #333;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  font-size: 2em;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+.subtitle {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.9em;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+}
+h2 {
+  color: var(--accent);
+  font-size: 1.4em;
+  margin: 30px 0 15px;
+  padding-left: 12px;
+  border-left: 4px solid var(--accent);
+}
+h3 {
+  color: var(--cyan);
+  font-size: 1.1em;
+  margin: 20px 0 10px;
+}
+h4 {
+  color: var(--gold);
+  font-size: 1em;
+  margin: 15px 0 8px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin: 12px 0;
+}
+.card-alt {
+  background: var(--card-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin: 12px 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.88em;
+}
+th {
+  background: var(--card-alt);
+  color: var(--gold);
+  padding: 8px 10px;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+td {
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+}
+tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+code {
+  background: #2a2a3a;
+  color: var(--cyan);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+}
+pre {
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  overflow-x: auto;
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: var(--cyan);
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin: 2px;
+}
+.tag-red { background: rgba(233,69,96,0.2); color: var(--accent); border: 1px solid var(--accent); }
+.tag-gold { background: rgba(255,215,0,0.15); color: var(--gold); border: 1px solid var(--gold); }
+.tag-cyan { background: rgba(0,212,255,0.15); color: var(--cyan); border: 1px solid var(--cyan); }
+.tag-green { background: rgba(0,230,118,0.15); color: var(--green); border: 1px solid var(--green); }
+.tag-purple { background: rgba(187,134,252,0.15); color: var(--purple); border: 1px solid var(--purple); }
+.tag-orange { background: rgba(255,145,0,0.15); color: var(--orange); border: 1px solid var(--orange); }
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 25px 0;
+}
+.highlight { color: var(--gold); font-weight: 600; }
+.red { color: var(--accent); }
+.cyan { color: var(--cyan); }
+.green { color: var(--green); }
+.orange { color: var(--orange); }
+ul { padding-left: 20px; margin: 8px 0; }
+li { margin: 4px 0; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+.footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.8em;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.toc { margin: 15px 0; }
+.toc a { color: var(--cyan); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li { margin: 6px 0; }
+.formula-box {
+  background: #111;
+  border-left: 4px solid var(--gold);
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 0 8px 8px 0;
+}
+.warn-box {
+  background: rgba(233,69,96,0.1);
+  border-left: 4px solid var(--accent);
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 0 8px 8px 0;
+}
+</style>
+</head>
+<body>
+
+<h1>🎰 XỔ SỐ MỆNH ĐỀ</h1>
+<p class="subtitle">
+Blueprint Premium — Phân Rã Kỹ Thuật Hoàn Chỉnh<br>
+<span class="tag tag-red">CONFIDENTIAL</span>
+<span class="tag tag-gold">REVERSE ENGINEERED</span>
+<span class="tag tag-cyan">v1.0.5</span><br>
+Nguồn: APK com.kts.monitor + Web SPA app.ktso.net | Ngày: 14/03/2026
+</p>
+
+<div class="card">
+<h3>📋 MỤC LỤC</h3>
+<ol class="toc">
+<li><a href="#s1">Kiến Trúc Kỹ Thuật</a></li>
+<li><a href="#s2">Kill Switch — Cơ Chế Qua Mắt Apple/Google</a></li>
+<li><a href="#s3">Hệ Thống Đài (60+ đài, 10 vùng)</a></li>
+<li><a href="#s4">Hệ Thống Cú Pháp Đặt Cược (Parser Engine)</a></li>
+<li><a href="#s5">Thiết Kế Lệnh — Bảng Mã Loại Cược</a></li>
+<li><a href="#s6">Công Thức Tính Số Đề (Core Engine)</a></li>
+<li><a href="#s7">Tỷ Lệ Ăn / Tỷ Lệ Cá (Rate Defaults)</a></li>
+<li><a href="#s8">Công Thức Tổng Kết (sum_total / sum_result)</a></li>
+<li><a href="#s9">Giới Hạn Cược (Overpoint System)</a></li>
+<li><a href="#s10">Hệ Thống Đại Lý (Agent System)</a></li>
+<li><a href="#s11">Hệ Thống Tài Chính (USDT + Credit)</a></li>
+<li><a href="#s12">Bot Telegram Tự Động</a></li>
+<li><a href="#s13">Bản Đồ Routes Hoàn Chỉnh</a></li>
+<li><a href="#s14">Infra &amp; Third-party</a></li>
+</ol>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 1 -->
+<h2 id="s1">1. KIẾN TRÚC KỸ THUẬT</h2>
+
+<div class="card">
+<h4>Stack</h4>
+<table>
+<tr><th>Layer</th><th>Technology</th><th>Chi tiết</th></tr>
+<tr><td>Mobile Shell</td><td><span class="tag tag-purple">WebViewGold</span></td><td>Android wrapper, load URL trực tiếp</td></tr>
+<tr><td>Frontend</td><td><span class="tag tag-cyan">Vue.js SPA</span></td><td>app.js (1.3MB) + vendors.js (2.5MB) + Framework7 UI</td></tr>
+<tr><td>Backend API</td><td><span class="tag tag-green">Laravel</span></td><td>api.ktso.net/api/ (RESTful)</td></tr>
+<tr><td>Realtime</td><td><span class="tag tag-orange">Laravel Echo + Pusher</span></td><td>Broadcasting, live updates</td></tr>
+<tr><td>CDN</td><td><span class="tag tag-gold">Cloudflare</span></td><td>Server Singapore</td></tr>
+<tr><td>Web App URL</td><td colspan="2"><code>https://app.ktso.net</code> (last update: 09/02/2026)</td></tr>
+<tr><td>API URL</td><td colspan="2"><code>https://api.ktso.net/api/</code></td></tr>
+<tr><td>Package</td><td colspan="2"><code>com.kts.monitor</code> v1.0.5, target SDK 35, min SDK 23</td></tr>
+</table>
+
+<h4>Permissions (đáng chú ý)</h4>
+<ul>
+<li><code>CAMERA</code> — QR scan nạp USDT</li>
+<li><code>READ_CONTACTS</code> — mời giới thiệu</li>
+<li><code>READ_CLIPBOARD_SILENT</code> — paste địa chỉ ví</li>
+<li><code>USE_BIOMETRIC</code> — xác thực vân tay</li>
+<li><code>RECORD_AUDIO</code> — voice message trong chat</li>
+<li><code>C2D_MESSAGE</code> — push notification (Pushwoosh/OneSignal)</li>
+</ul>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 2 -->
+<h2 id="s2">2. KILL SWITCH — CƠ CHẾ QUA MẮT APPLE/GOOGLE</h2>
+
+<div class="warn-box">
+<strong class="red">⚠️ PHÁT HIỆN QUAN TRỌNG:</strong> App dùng biến <code>review_status</code> từ server để ẩn/hiện toàn bộ tính năng gambling.
+</div>
+
+<div class="card">
+<pre>
+// Pseudo-code từ source decompiled:
+
+if (user_info.review_status === 1) {
+    // USER THẬT → HIỆN TẤT CẢ:
+    // Footer navigation, gambling tabs, credit info
+    // USDT wallet, MB/MN/MT tabs
+    // Đại lý, báo cáo ngày, khách hàng
+    // Nạp/rút USDT, mua Credit
+} else {
+    // APPLE/GOOGLE REVIEWER → CHỈ HIỆN:
+    // Mining dashboard (2miners, Ethermine, Ravencoin)
+    // Wallet viewer (hashrate, workers, payments)
+    // ẨN toàn bộ gambling
+}
+
+if (user_info.feature_lock) {
+    // Khóa tính năng khi hết Credit
+    // Alert: "Tài khoản bị tạm khóa..."
+}
+</pre>
+
+<h4>Màn hình giả cho reviewer</h4>
+<table>
+<tr><th>Route</th><th>Chức năng giả</th></tr>
+<tr><td><code>/miner/add-wallet</code></td><td>Thêm wallet đào coin</td></tr>
+<tr><td><code>/miner/view-wallet</code></td><td>Xem wallet (2miners API)</td></tr>
+<tr><td><code>/miner/edit-wallet</code></td><td>Sửa wallet</td></tr>
+<tr><td><code>/review/random-number</code></td><td>Máy tạo số ngẫu nhiên (giả)</td></tr>
+<tr><td><code>/review/calculator</code></td><td>Máy tính (giả)</td></tr>
+</table>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 3 -->
+<h2 id="s3">3. HỆ THỐNG ĐÀI (60+ đài, 10 vùng)</h2>
+
+<div class="card">
+<h4>10 Vùng Cược (Region / Play Style)</h4>
+<table>
+<tr><th>Region</th><th>Play Style</th><th>Mô tả</th></tr>
+<tr><td rowspan="3" class="highlight">MN (Miền Nam)</td><td><code>mn</code></td><td>Miền Nam default — 21 đài</td></tr>
+<tr><td><code>mn_mtay</code></td><td>MN Miền Tây</td></tr>
+<tr><td><code>mn_buonme</code></td><td>MN Buôn Mê</td></tr>
+<tr><td rowspan="3" class="cyan">MT (Miền Trung)</td><td><code>mt</code></td><td>Miền Trung default — 11 đài</td></tr>
+<tr><td><code>mt_mtay</code></td><td>MT Miền Tây</td></tr>
+<tr><td><code>mt_buonme</code></td><td>MT Buôn Mê</td></tr>
+<tr><td rowspan="4" class="orange">MB (Miền Bắc)</td><td><code>mb</code></td><td>Miền Bắc default</td></tr>
+<tr><td><code>mb_hanoi</code></td><td>MB Hà Nội (riêng)</td></tr>
+<tr><td><code>mb_ngan</code></td><td>MB Ngắn</td></tr>
+<tr><td><code>mb_buonme</code></td><td>MB Buôn Mê</td></tr>
+</table>
+
+<h4>Danh sách đài chi tiết</h4>
+<div class="grid-2">
+<div class="card-alt">
+<h4>🟡 MIỀN NAM (21 đài)</h4>
+TP HCM, Đồng Tháp, Cà Mau, Bến Tre, Vũng Tàu, Bạc Liêu, Đồng Nai, Cần Thơ, Sóc Trăng, Bình Thuận, Tây Ninh, An Giang, Bình Dương, Trà Vinh, Vĩnh Long, Tiền Giang, Kiên Giang, Đà Lạt (Lâm Đồng), Long An, Bình Phước, Hậu Giang
+</div>
+<div class="card-alt">
+<h4>🔵 MIỀN TRUNG (11 đài)</h4>
+Huế (Thừa Thiên Huế), Đà Nẵng, Phú Yên, Khánh Hòa, Quảng Bình, Quảng Trị, Quảng Nam, Quảng Ngãi, Bình Định, Gia Lai, Kon Tum, Đắk Lắk, Đắk Nông, Ninh Thuận
+</div>
+</div>
+<div class="card-alt">
+<h4>🔴 MIỀN BẮC</h4>
+Hà Nội (đài chính) — xổ hàng ngày. Các đài phụ theo biến thể MB Ngắn, MB Miền Tây, MB Buôn Mê.
+</div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 4 -->
+<h2 id="s4">4. HỆ THỐNG CÚ PHÁP ĐẶT CƯỢC (Parser Engine)</h2>
+
+<div class="card">
+<p>App có <strong class="highlight">bộ parser cú pháp tự nhiên tiếng Việt</strong> — nhận tin nhắn dạng tự do rồi chuyển thành lệnh cược có cấu trúc. Parser chạy phía server (Laravel), frontend chỉ gửi raw text.</p>
+
+<h4>Cấu trúc cú pháp</h4>
+<div class="formula-box">
+<code>[tên đài] [số cược] [số tiền][đơn vị] [loại cược]</code><br><br>
+Ví dụ:<br>
+<code>tp 36 50n de</code> → TP HCM, số 36, 50 nghìn, đề đuôi<br>
+<code>dn 123 10n bac</code> → Đà Nẵng, số 123, 10 nghìn, ba càng<br>
+<code>mb 45.67 20n dx</code> → Miền Bắc, đá xiên 45-67, 20 nghìn
+</div>
+
+<h4>Bảng aliases cú pháp (từ source code)</h4>
+<table>
+<tr><th>Lệnh gõ</th><th>Aliases</th><th>Loại cược</th></tr>
+<tr><td class="green">Bao lô</td><td><code>bao, baolo, blo, b, lo, bl</code></td><td>2C Bao</td></tr>
+<tr><td class="green">Bao lô đảo</td><td><code>baodao, daobao, bldao</code></td><td>2C Bao đảo</td></tr>
+<tr><td class="green">Đầu đuôi</td><td><code>dauduoi, daudui, dd</code></td><td>2C ĐĐ</td></tr>
+<tr><td class="green">Đầu</td><td><code>dau</code></td><td>2C Đầu riêng</td></tr>
+<tr><td class="green">Đuôi / Đề</td><td><code>duoi, dui, de, dacbiet</code></td><td>2C Đuôi / Đề</td></tr>
+<tr><td class="cyan">Đá thẳng</td><td><code>dathang, thang, dat</code></td><td>2C Đá T</td></tr>
+<tr><td class="cyan">Đá xiên</td><td><code>daxien, dx, xien, xi</code></td><td>2C Đá X</td></tr>
+<tr><td class="cyan">Xiên 2</td><td><code>xienhai, xi2</code></td><td>2C ĐáX2</td></tr>
+<tr><td class="cyan">Xiên 3</td><td><code>xienba, xi3</code></td><td>2C ĐáX3</td></tr>
+<tr><td class="cyan">Xiên 4</td><td><code>xienbon, xi4</code></td><td>2C ĐáX4</td></tr>
+<tr><td class="orange">Xỉu chủ</td><td><code>xc, xchu, xiuchu, xiu, tieulo, tlo</code></td><td>3C XC</td></tr>
+<tr><td class="orange">Bảy lô</td><td><code>baylo, bay</code></td><td>2C B7</td></tr>
+<tr><td class="orange">Tám lô</td><td><code>tamlo, btam</code></td><td>2C B8</td></tr>
+<tr><td class="purple">Ba càng</td><td><code>bacang, bac, cang</code></td><td>3C Bao</td></tr>
+<tr><td class="purple">Ngang (5 số)</td><td><code>ngang, namso</code></td><td>1C</td></tr>
+<tr><td class="red">Giải nhất</td><td><code>giainhat, gnhat</code></td><td>GNhat</td></tr>
+<tr><td class="red">Tài xỉu / Kéo</td><td><code>taixiu, keotai, keoxiu, chan, le, cao, thap, tongchan, tongle</code></td><td>Kéo</td></tr>
+</table>
+
+<h4>Đơn vị tiền</h4>
+<table>
+<tr><th>Ký hiệu</th><th>Giá trị</th></tr>
+<tr><td><code>n</code> hoặc <code>k</code></td><td>x1.000 (nghìn)</td></tr>
+<tr><td><code>tr</code></td><td>x1.000.000 (triệu)</td></tr>
+<tr><td>Không ghi</td><td>Đơn vị mặc định (nghìn)</td></tr>
+</table>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 5 -->
+<h2 id="s5">5. THIẾT KẾ LỆNH — BẢNG MÃ LOẠI CƯỢC</h2>
+
+<div class="card">
+<h4>Play Style Codes (command_play_style)</h4>
+<table>
+<tr><th>Code hiển thị</th><th>Tên đầy đủ</th><th>Phân loại</th></tr>
+<tr><td><code>1C</code></td><td>Một con (Ngang/5 số)</td><td><span class="tag tag-purple">1 con</span></td></tr>
+<tr><td><code>GNhat</code></td><td>Giải nhất</td><td><span class="tag tag-red">Đặc biệt</span></td></tr>
+<tr><td><code>2CB</code></td><td>2 con bao lô</td><td><span class="tag tag-green">2 con</span></td></tr>
+<tr><td><code>2CĐ</code></td><td>2 con đầu đuôi</td><td><span class="tag tag-green">2 con</span></td></tr>
+<tr><td><code>2CB7</code></td><td>2 con bảy lô</td><td><span class="tag tag-green">2 con</span></td></tr>
+<tr><td><code>2CB8</code></td><td>2 con tám lô</td><td><span class="tag tag-green">2 con</span></td></tr>
+<tr><td><code>ĐáT</code></td><td>Đá thẳng</td><td><span class="tag tag-cyan">Đá</span></td></tr>
+<tr><td><code>ĐáX</code></td><td>Đá xiên (1 đài)</td><td><span class="tag tag-cyan">Đá</span></td></tr>
+<tr><td><code>ĐáX2</code></td><td>Đá xiên 2 đài</td><td><span class="tag tag-cyan">Đá</span></td></tr>
+<tr><td><code>ĐáX3</code></td><td>Đá xiên 3 đài</td><td><span class="tag tag-cyan">Đá</span></td></tr>
+<tr><td><code>ĐáX4</code></td><td>Đá xiên 4 đài</td><td><span class="tag tag-cyan">Đá</span></td></tr>
+<tr><td><code>3CB</code></td><td>3 con bao</td><td><span class="tag tag-orange">3 con</span></td></tr>
+<tr><td><code>3CB7</code></td><td>3 con bảy</td><td><span class="tag tag-orange">3 con</span></td></tr>
+<tr><td><code>3CXC</code></td><td>3 con xỉu chủ</td><td><span class="tag tag-orange">3 con</span></td></tr>
+<tr><td><code>4C</code></td><td>4 con số</td><td><span class="tag tag-red">4 con</span></td></tr>
+<tr><td><code>An Ủi</code></td><td>Ăn an ủi (2C)</td><td><span class="tag tag-gold">Bonus</span></td></tr>
+</table>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 6 -->
+<h2 id="s6">6. CÔNG THỨC TÍNH SỐ ĐỀ (Core Engine)</h2>
+
+<div class="card">
+<p>Mỗi tin nhắn cược sau khi parse sẽ tạo ra object <code>report_json</code> chứa toàn bộ phép tính:</p>
+
+<div class="formula-box">
+<strong class="gold">Cấu trúc report_json</strong>
+<pre>
+report_json = {
+  "1c": {
+    point: { ngang },
+    cost: { ngang },
+    cost_without_rate: { ngang },
+    win: { ngang },
+    win_without_win_rate: { ngang },
+    result: { ngang }
+  },
+  "2c": {
+    point: { baolo, baylo, tamlo, dau, duoi, ke, dat, dx, dx_2, dx_3, dx_4 },
+    cost: { baolo, baylo, tamlo, dau, duoi, ke, dat, dx, dx_2, dx_3, dx_4 },
+    cost_without_rate: { same fields },
+    win: { baolo, baylo, tamlo, dau, duoi, ke, dat, dx, dx_2, dx_3, dx_4,
+           giainhat, daunhat, ui },
+    win_without_win_rate: { same fields },
+    result: { baolo, dau, duoi, baylo, tamlo, dat, dx, dx_2, dx_3, dx_4,
+              ke, giainhat, daunhat, ui }
+  },
+  "3c": {
+    point: { baolo, baylo, dat, dx, dau, duoi, ke },
+    cost: { same },
+    cost_without_rate: { same },
+    win: { same },
+    win_without_win_rate: { same },
+    result: { same }
+  },
+  "4c": {
+    point: { dat, dx, baolo, dau, duoi, baylo },
+    cost: { same },
+    cost_without_rate: { same },
+    win: { same },
+    win_without_win_rate: { same },
+    result: { same }
+  }
+}
+</pre>
+</div>
+
+<h4>Phân biệt 3 lớp giá trị</h4>
+<table>
+<tr><th>Field</th><th>Ý nghĩa</th></tr>
+<tr><td><code>point</code></td><td>Số điểm (đơn vị cược, chưa nhân tiền)</td></tr>
+<tr><td><code>cost</code></td><td>Tiền đặt SAU chiết khấu (cost = point × rate)</td></tr>
+<tr><td><code>cost_without_rate</code></td><td>Tiền đặt GỐC (chưa chiết khấu)</td></tr>
+<tr><td><code>win</code></td><td>Tiền ăn SAU tỷ lệ ăn (win = point × win_rate × trúng)</td></tr>
+<tr><td><code>win_without_win_rate</code></td><td>Tiền ăn GỐC (chưa nhân tỷ lệ ăn)</td></tr>
+<tr><td><code>result</code></td><td>Kết quả cuối (cost - win hoặc win - cost tùy loại)</td></tr>
+</table>
+
+<h4>Mối quan hệ giữa các trường</h4>
+<div class="formula-box">
+<code>cost = cost_without_rate × rate</code><br>
+<code>win = win_without_win_rate × win_rate</code><br>
+<code>result = cost - win</code> (dương = nhà cái thu, âm = nhà cái bù)
+</div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 7 -->
+<h2 id="s7">7. TỶ LỆ ĂN / TỶ LỆ CÁ (Rate Defaults)</h2>
+
+<div class="card">
+<h4>MIỀN NAM (MN) &amp; MIỀN TRUNG (MT) — Rate mặc định</h4>
+<table>
+<tr><th>Loại</th><th>Rate (chiết khấu)</th><th>Win Rate (ăn)</th><th>Ghi chú</th></tr>
+<tr><td>2C Bao lô</td><td>0.75</td><td class="green">×75</td><td>18 lô MN, 18 lô MT</td></tr>
+<tr><td>2C Đầu đuôi</td><td>0.75</td><td class="green">×75</td><td>Đầu + Đuôi</td></tr>
+<tr><td>2C Bảy lô</td><td>0.75</td><td class="green">×75</td><td>7 lô</td></tr>
+<tr><td>2C Tám lô</td><td>0.75</td><td class="green">×75</td><td>8 lô (MN/MT)</td></tr>
+<tr><td>2C Đá thẳng</td><td>0.75</td><td class="gold">×700</td><td>2 số về đúng đài</td></tr>
+<tr><td>2C Đá xiên</td><td>0.75</td><td class="gold">×550</td><td>2 số về bất kỳ đài</td></tr>
+<tr><td>3C Bao</td><td>0.65</td><td class="orange">×650</td><td>3 số bao</td></tr>
+<tr><td>3C Đầu đuôi</td><td>0.65</td><td class="orange">×650</td><td>3 số đầu hoặc đuôi</td></tr>
+<tr><td>4C Bao</td><td>0.65</td><td class="red">×5,500</td><td>4 số bao</td></tr>
+<tr><td>4C Đầu đuôi</td><td>0.65</td><td class="red">×5,500</td><td>4 số đầu/đuôi</td></tr>
+</table>
+
+<h4>MIỀN BẮC (MB) — Rate khác biệt</h4>
+<table>
+<tr><th>Loại</th><th>Rate</th><th>Win Rate</th><th>Khác MN/MT</th></tr>
+<tr><td>2C Bao/ĐĐ/B7/B8</td><td>0.75</td><td class="green">×75</td><td>Giống</td></tr>
+<tr><td>2C Đá thẳng</td><td>0.75</td><td class="gold">×650</td><td class="red">↓ từ ×700</td></tr>
+<tr><td>2C Đá xiên 1 đài</td><td>0.75</td><td class="gold">×650</td><td class="red">↑ từ ×550</td></tr>
+<tr><td>2C Đá xiên 2 đài</td><td class="orange">56</td><td class="gold">×1,000</td><td class="red">Riêng MB</td></tr>
+<tr><td>2C Đá xiên 3 đài</td><td class="orange">52</td><td class="gold">×4,000</td><td class="red">Riêng MB</td></tr>
+<tr><td>2C Đá xiên 4 đài</td><td class="orange">45</td><td class="red">×10,000</td><td class="red">Riêng MB</td></tr>
+<tr><td>3C / 4C</td><td>0.65</td><td>Giống MN</td><td>—</td></tr>
+</table>
+
+<h4>Rate Bonus Type</h4>
+<div class="formula-box">
+<code>rate_bonus_type:</code> MN/MT = <span class="green">2</span>, MB = <span class="orange">3</span><br>
+<code>rate_bonus_type_dx:</code> MN/MT = <span class="green">3</span>, MB = <span class="orange">1</span>
+</div>
+
+<div class="warn-box">
+<strong>⚠️ Lưu ý:</strong> Rate mặc định có thể bị override bởi <code>config_deal</code> của từng đại lý/khách hàng. Mỗi customer có bộ rate riêng cho từng vùng.
+</div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 8 -->
+<h2 id="s8">8. CÔNG THỨC TỔNG KẾT (sum_total / sum_result)</h2>
+
+<div class="card">
+<h4>sum_total — Tổng lãi/lỗ (BigNumber precision)</h4>
+<div class="formula-box">
+<pre>
+sum_total = 0
+
+// CỘNG tất cả cost (tiền đặt sau chiết khấu)
++ sum_cost_1c
++ sum_cost_giainhat
++ sum_cost_2c_bao
++ sum_cost_2c_bay (bảy lô)
++ sum_cost_2c_tam (tám lô)
++ sum_cost_2c_dd
++ sum_cost_2c_dat
++ sum_cost_2c_dax
++ sum_cost_2c_dax2
++ sum_cost_2c_dax3
++ sum_cost_2c_dax4
++ sum_cost_3c_bao
++ sum_cost_3c_bay
++ sum_cost_3c_xc
++ sum_cost_4c
+
+// TRỪ tất cả win (tiền ăn)
+- sum_win_1c
+- sum_win_giainhat
+- sum_win_2c_bao
+- sum_win_2c_bay
+- sum_win_2c_tam
+- sum_win_2c_dd
+- sum_win_2c_ui (an ủi)
+- sum_win_2c_dat
+- sum_win_2c_dax
+- sum_win_2c_dax2
+- sum_win_2c_dax3
+- sum_win_2c_dax4
+- sum_win_3c_bao
+- sum_win_3c_bay
+- sum_win_3c_xc
+- sum_win_4c
+</pre>
+</div>
+
+<h4>Đảo dấu theo loại khách</h4>
+<div class="formula-box">
+<pre>
+if (customer.type === 1)    // Khách hàng
+    return sum_total        // Dương = nhà cái THU
+                            // Âm = nhà cái BÙ
+
+if (customer.type !== 1)    // Đại lý (type 4)
+    return -sum_total       // ĐẢO DẤU
+                            // (đại lý nhìn từ góc khách)
+</pre>
+</div>
+
+<h4>sum_result — Kết quả sau ăn chia</h4>
+<div class="formula-box">
+<pre>
+// sum_result = Σ tất cả result từ report_json
+
+sum_result = 
+  // 1C
+  + report_json["1c"].result.ngang
+
+  // 2C (13 sub-fields)
+  + report_json["2c"].result.giainhat
+  + report_json["2c"].result.daunhat
+  + report_json["2c"].result.dat
+  + report_json["2c"].result.dx
+  + report_json["2c"].result.dx_2
+  + report_json["2c"].result.dx_3
+  + report_json["2c"].result.dx_4
+  + report_json["2c"].result.baolo
+  + report_json["2c"].result.dau
+  + report_json["2c"].result.duoi
+  + report_json["2c"].result.baylo
+  + report_json["2c"].result.tamlo
+  + report_json["2c"].result.ui
+  + report_json["2c"].result.ke
+
+  // 3C (7 sub-fields)
+  + report_json["3c"].result.dat
+  + report_json["3c"].result.dx
+  + report_json["3c"].result.baolo
+  + report_json["3c"].result.dau
+  + report_json["3c"].result.duoi
+  + report_json["3c"].result.baylo
+  + report_json["3c"].result.ke
+
+  // 4C (6 sub-fields)
+  + report_json["4c"].result.dat
+  + report_json["4c"].result.dx
+  + report_json["4c"].result.baolo
+  + report_json["4c"].result.dau
+  + report_json["4c"].result.duoi
+  + report_json["4c"].result.baylo
+</pre>
+</div>
+
+<h4>Hiển thị cuối cùng (UI)</h4>
+<div class="formula-box">
+<pre>
+// Trên giao diện:
+"Thu: [sum_total] x [total_percent]% = [final]"
+ hoặc
+"Bù: [sum_total] x [total_percent]% = [final]"
+
+// Nếu có line_percent:
+"- ([line_percent]% hồi) = [sum_final]"
+
+// Màu sắc:
+sum_total >= 0 → xanh lá (forestgreen) → THU
+sum_total < 0  → đỏ (crimson) → BÙ
+</pre>
+</div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 9 -->
+<h2 id="s9">9. GIỚI HẠN CƯỢC (Overpoint System)</h2>
+
+<div class="card">
+<p>Hệ thống <strong class="highlight">overpoint</strong> giới hạn tổng điểm cược cho từng con số, theo từng loại, từng đài, từng ngày.</p>
+
+<h4>Các loại overpoint</h4>
+<table>
+<tr><th>Field</th><th>Áp dụng cho</th></tr>
+<tr><td><code>over_point_dau</code></td><td>Giới hạn điểm Đầu</td></tr>
+<tr><td><code>over_point_duoi</code></td><td>Giới hạn điểm Đuôi / Đề</td></tr>
+<tr><td><code>over_point_bao</code></td><td>Giới hạn điểm Bao lô</td></tr>
+<tr><td><code>over_point_tamlo</code></td><td>Giới hạn Tám lô (chỉ MB)</td></tr>
+<tr><td><code>over_point_da</code></td><td>Giới hạn Đá thẳng</td></tr>
+<tr><td><code>over_point_dx</code></td><td>Giới hạn Đá xiên</td></tr>
+</table>
+
+<h4>Phạm vi áp dụng</h4>
+<div class="formula-box">
+Overpoint được cài đặt theo: <strong>Vùng → Ngày → Đài → Loại cược → Con số</strong><br><br>
+Ngoài ra có tính năng <strong class="red">"Chặn số kẹt"</strong> — tự động block con số bị cược quá nhiều.<br><br>
+Route quản lý: <code>/bot/overpoint</code>
+</div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 10 -->
+<h2 id="s10">10. HỆ THỐNG ĐẠI LÝ (Agent System)</h2>
+
+<div class="card">
+<h4>Phân loại khách</h4>
+<table>
+<tr><th>Type</th><th>Vai trò</th><th>Đặc điểm</th></tr>
+<tr><td><code>type = 1</code></td><td class="green">Khách hàng (Customer)</td><td>Đặt cược, xem kết quả. sum_total giữ nguyên dấu.</td></tr>
+<tr><td><code>type = 4</code></td><td class="gold">Đại lý (Agent)</td><td>Quản lý khách, config deal riêng. sum_total ĐẢO DẤU.</td></tr>
+</table>
+
+<h4>Cấu trúc config_deal (mỗi đại lý)</h4>
+<div class="formula-box">
+<pre>
+customer.config_deal = {
+  mn:        { total_percent, line_percent, ...rates },
+  mn_mtay:   { total_percent, line_percent, ...rates },
+  mn_buonme: { total_percent, line_percent, ...rates },
+  mt:        { total_percent, line_percent, ...rates },
+  mt_mtay:   { total_percent, line_percent, ...rates },
+  mt_buonme: { total_percent, line_percent, ...rates },
+  mb:        { total_percent, line_percent, ...rates },
+  mb_hanoi:  { total_percent, line_percent, ...rates },
+  mb_ngan:   { total_percent, line_percent, ...rates },
+  mb_buonme: { total_percent, line_percent, ...rates },
+  mb_mtay:   { total_percent, line_percent, ...rates }
+}
+</pre>
+</div>
+
+<h4>Hệ thống ăn chia</h4>
+<div class="formula-box">
+<code>total_percent</code> — % ăn chia (default 100%). Ví dụ: 80% = đại lý giữ 80%, gốc giữ 20%.<br>
+<code>line_percent</code> — % hồi theo dòng (chiết khấu thêm cho đại lý).<br><br>
+<strong>Công thức final:</strong><br>
+<code>final = sum_total × total_percent%</code><br>
+<code>sum_final = final - (final × line_percent%)</code> (nếu line_percent > 0)
+</div>
+
+<h4>Quản lý cây đại lý</h4>
+<ul>
+<li>Quan hệ <code>parent → childs</code> (đại lý cha → đại lý con)</li>
+<li>Mỗi đại lý có config_deal riêng cho MỖI VÙNG (10 bộ rate)</li>
+<li>Route: <code>/quan-ly-dai-ly</code></li>
+<li>Tạo tài khoản khách: <code>/tao-tai-khoan-khach</code></li>
+<li>Mã giới thiệu: <code>/tao-ma-gioi-thieu</code></li>
+</ul>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 11 -->
+<h2 id="s11">11. HỆ THỐNG TÀI CHÍNH (USDT + Credit)</h2>
+
+<div class="card">
+<h4>Wallet &amp; Thanh toán</h4>
+<table>
+<tr><th>Thành phần</th><th>Chi tiết</th></tr>
+<tr><td>USDT Wallet</td><td>BSC-20 + TRC-20</td></tr>
+<tr><td>Credit System</td><td>Mua credit bằng USDT → dùng credit chơi</td></tr>
+<tr><td>Tỷ giá</td><td><code>usdt_buy</code> (mua) / <code>usdt_sell</code> (bán)</td></tr>
+<tr><td>Balance VND</td><td><code>wallet_balance × usdt_buy = VND</code></td></tr>
+<tr><td>Nạp USDT</td><td><code>/nap-rut-usdt</code></td></tr>
+<tr><td>Mua Credit</td><td><code>/mua-credit</code></td></tr>
+<tr><td>Mua USDT</td><td><code>/mua-usdt</code></td></tr>
+<tr><td>Hoa hồng</td><td><code>/hoa-hong-gioi-thieu</code> (spent_usdt, commission_usdt)</td></tr>
+<tr><td>Subscription</td><td>RevenueCat (tính năng premium)</td></tr>
+</table>
+
+<h4>Feature Lock</h4>
+<div class="warn-box">
+Khi <code>system_credit ≤ 0</code> → <code>feature_lock = true</code> → khóa tất cả tính năng cược.<br>
+Khi <code>system_credit ≤ 90</code> → cảnh báo "Bạn đã gần hết Credit".<br>
+Buôn Mê editions (mn_buonme, mt_buonme, mb_buonme) bypass cảnh báo này.
+</div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 12 -->
+<h2 id="s12">12. BOT TELEGRAM TỰ ĐỘNG</h2>
+
+<div class="card">
+<h4>3 Bot theo miền</h4>
+<table>
+<tr><th>Config</th><th>Bot</th><th>Chức năng</th></tr>
+<tr><td><code>allow_active_bot_mn</code></td><td>Bot Miền Nam</td><td>Nhận tin → parse → đặt cược MN</td></tr>
+<tr><td><code>allow_active_bot_mt</code></td><td>Bot Miền Trung</td><td>Nhận tin → parse → đặt cược MT</td></tr>
+<tr><td><code>allow_active_bot_mb</code></td><td>Bot Miền Bắc</td><td>Nhận tin → parse → đặt cược MB</td></tr>
+</table>
+
+<h4>Workflow</h4>
+<div class="formula-box">
+<pre>
+1. User gửi tin Telegram: "tp 36 50n de"
+2. Bot nhận → gọi Parser Engine
+3. Parser trả report_json
+4. Bot confirm → đặt cược
+5. bot_auto_send_summary_report → tự gửi báo cáo cuối ngày
+</pre>
+</div>
+
+<h4>Routes quản lý Bot</h4>
+<table>
+<tr><th>Route</th><th>Chức năng</th></tr>
+<tr><td><code>/bot/tao-moi</code></td><td>Tạo bot mới</td></tr>
+<tr><td><code>/bot/tao-moi-ke-tin</code></td><td>Tạo bot kế thừa tin</td></tr>
+<tr><td><code>/bot/tao-moi-nhan-tin</code></td><td>Tạo bot nhận tin</td></tr>
+<tr><td><code>/bot/view</code></td><td>Xem bot</td></tr>
+<tr><td><code>/bot/config</code></td><td>Cấu hình bot</td></tr>
+<tr><td><code>/bot/overpoint</code></td><td>Quản lý giới hạn cược</td></tr>
+</table>
+
+<h4>Chatbot in-app</h4>
+<ul>
+<li>Inbox: <code>/inbox/danh-sach-ban</code></li>
+<li>Chat: <code>/inbox/chat</code></li>
+<li>Mentor info: hiển thị telegram_username của người hướng dẫn</li>
+</ul>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 13 -->
+<h2 id="s13">13. BẢN ĐỒ ROUTES HOÀN CHỈNH</h2>
+
+<div class="card">
+<table>
+<tr><th>Route</th><th>Chức năng</th><th>Phân loại</th></tr>
+<tr><td><code>/</code></td><td>Dashboard chính</td><td><span class="tag tag-green">Core</span></td></tr>
+<tr><td><code>/dang-nhap</code></td><td>Đăng nhập</td><td><span class="tag tag-green">Auth</span></td></tr>
+<tr><td><code>/dang-ky</code></td><td>Đăng ký</td><td><span class="tag tag-green">Auth</span></td></tr>
+<tr><td><code>/quen-mat-khau</code></td><td>Quên mật khẩu</td><td><span class="tag tag-green">Auth</span></td></tr>
+<tr><td><code>/doi-mat-khau</code></td><td>Đổi mật khẩu</td><td><span class="tag tag-green">Auth</span></td></tr>
+<tr><td><code>/doi-mat-khau-cap-2</code></td><td>Đổi MK cấp 2</td><td><span class="tag tag-green">Auth</span></td></tr>
+<tr><td><code>/xu-ly/:region/:playStyle</code></td><td>Xử lý cược theo vùng</td><td><span class="tag tag-red">Gambling</span></td></tr>
+<tr><td><code>/xu-ly/.../khach-hang/:id</code></td><td>Xử lý khách hàng cụ thể</td><td><span class="tag tag-red">Gambling</span></td></tr>
+<tr><td><code>/xu-ly/.../them-tin-nhan</code></td><td>Thêm tin nhắn cược</td><td><span class="tag tag-red">Gambling</span></td></tr>
+<tr><td><code>/xu-ly/.../sua-tin-nhan/:id</code></td><td>Sửa tin nhắn cược</td><td><span class="tag tag-red">Gambling</span></td></tr>
+<tr><td><code>/du-chuan/:region/:playStyle</code></td><td>Dự chuẩn (preview)</td><td><span class="tag tag-red">Gambling</span></td></tr>
+<tr><td><code>/cu-phap</code></td><td>Quản lý cú pháp</td><td><span class="tag tag-cyan">Config</span></td></tr>
+<tr><td><code>/cu-phap/tao-moi</code></td><td>Tạo cú pháp mới</td><td><span class="tag tag-cyan">Config</span></td></tr>
+<tr><td><code>/cu-phap/chinh-sua</code></td><td>Chỉnh sửa cú pháp</td><td><span class="tag tag-cyan">Config</span></td></tr>
+<tr><td><code>/khach-hang</code></td><td>Danh sách khách</td><td><span class="tag tag-gold">CRM</span></td></tr>
+<tr><td><code>/khach-hang/tao-moi</code></td><td>Tạo khách mới</td><td><span class="tag tag-gold">CRM</span></td></tr>
+<tr><td><code>/khach-hang/chi-tiet/:id</code></td><td>Chi tiết khách</td><td><span class="tag tag-gold">CRM</span></td></tr>
+<tr><td><code>/quan-ly-dai-ly</code></td><td>Quản lý đại lý</td><td><span class="tag tag-gold">Agent</span></td></tr>
+<tr><td><code>/tao-tai-khoan-khach</code></td><td>Tạo TK khách</td><td><span class="tag tag-gold">Agent</span></td></tr>
+<tr><td><code>/tao-ma-gioi-thieu</code></td><td>Tạo mã giới thiệu</td><td><span class="tag tag-gold">Agent</span></td></tr>
+<tr><td><code>/bao-cao-ngay</code></td><td>Báo cáo ngày v1</td><td><span class="tag tag-orange">Report</span></td></tr>
+<tr><td><code>/bao-cao-ngay-v2</code></td><td>Báo cáo ngày v2</td><td><span class="tag tag-orange">Report</span></td></tr>
+<tr><td><code>/bao-cao-ngay-v3</code></td><td>Báo cáo ngày v3 (mới nhất)</td><td><span class="tag tag-orange">Report</span></td></tr>
+<tr><td><code>/hoa-hong-gioi-thieu</code></td><td>Hoa hồng affiliate</td><td><span class="tag tag-orange">Finance</span></td></tr>
+<tr><td><code>/nap-rut-usdt</code></td><td>Nạp/rút USDT</td><td><span class="tag tag-orange">Finance</span></td></tr>
+<tr><td><code>/mua-credit</code></td><td>Mua Credit</td><td><span class="tag tag-orange">Finance</span></td></tr>
+<tr><td><code>/mua-usdt</code></td><td>Mua USDT</td><td><span class="tag tag-orange">Finance</span></td></tr>
+<tr><td><code>/bang-nhiem-vu</code></td><td>Bảng nhiệm vụ</td><td><span class="tag tag-purple">Gamification</span></td></tr>
+<tr><td><code>/cai-dat-hien-thi</code></td><td>Cài đặt hiển thị</td><td><span class="tag tag-cyan">Config</span></td></tr>
+<tr><td><code>/cai-dat-cach-choi</code></td><td>Cài đặt cách chơi</td><td><span class="tag tag-cyan">Config</span></td></tr>
+<tr><td><code>/cai-dat-luu-tru</code></td><td>Cài đặt lưu trữ</td><td><span class="tag tag-cyan">Config</span></td></tr>
+<tr><td><code>/ca-nhan</code></td><td>Trang cá nhân</td><td><span class="tag tag-green">Profile</span></td></tr>
+<tr><td><code>/test-tin</code></td><td>Test tin nhắn</td><td><span class="tag tag-cyan">Dev</span></td></tr>
+<tr><td><code>/bao-tri</code></td><td>Bảo trì</td><td><span class="tag tag-cyan">System</span></td></tr>
+<tr><td><code>/bot/*</code></td><td>Quản lý Bot Telegram</td><td><span class="tag tag-purple">Bot</span></td></tr>
+<tr><td><code>/miner/*</code></td><td>Màn hình đào coin (GIẢ)</td><td><span class="tag tag-red">Kill Switch</span></td></tr>
+<tr><td><code>/review/*</code></td><td>Calculator/Random (GIẢ)</td><td><span class="tag tag-red">Kill Switch</span></td></tr>
+</table>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 14 -->
+<h2 id="s14">14. INFRA &amp; THIRD-PARTY</h2>
+
+<div class="card">
+<table>
+<tr><th>Service</th><th>Mục đích</th><th>Ghi chú</th></tr>
+<tr><td>Cloudflare</td><td>CDN + DDoS protection</td><td>Server Singapore</td></tr>
+<tr><td>Pushwoosh</td><td>Push notifications (chính)</td><td>Badge count cross-platform</td></tr>
+<tr><td>OneSignal</td><td>Push notifications (backup)</td><td>Fallback</td></tr>
+<tr><td>RevenueCat</td><td>In-app subscriptions</td><td>Premium features</td></tr>
+<tr><td>Rollbar</td><td>Error tracking</td><td>Production monitoring</td></tr>
+<tr><td>Google AdMob</td><td>Quảng cáo</td><td>Trên màn mining giả</td></tr>
+<tr><td>Facebook Audience Network</td><td>Quảng cáo</td><td>audience_network.dex</td></tr>
+<tr><td>Firebase Analytics</td><td>Tracking</td><td>User behavior</td></tr>
+<tr><td>Laravel Echo + Pusher</td><td>Realtime updates</td><td>Live betting results</td></tr>
+<tr><td>Google Billing</td><td>In-app purchase</td><td>Mua credit qua Play Store</td></tr>
+<tr><td>ExoPlayer</td><td>Media playback</td><td>Tích hợp trong WebView</td></tr>
+</table>
+</div>
+
+<hr class="divider">
+
+<div class="card" style="border-color: var(--gold);">
+<h3 style="color: var(--gold); text-align: center;">📊 TÓM TẮT KIẾN TRÚC</h3>
+<pre style="text-align: center; color: var(--text);">
+┌─────────────────────────────────────────────┐
+│           MOBILE APP (WebViewGold)           │
+│  ┌───────────────────────────────────────┐  │
+│  │  review_status = 0 → MINING (giả)    │  │
+│  │  review_status = 1 → LÔ ĐỀ (thật)   │  │
+│  └───────────────────────────────────────┘  │
+│                    ↕                         │
+│  ┌───────────────────────────────────────┐  │
+│  │    Vue.js SPA (app.ktso.net)          │  │
+│  │    Framework7 UI + BigNumber.js       │  │
+│  └───────────────────────────────────────┘  │
+└──────────────────┬──────────────────────────┘
+                   ↕
+┌──────────────────┴──────────────────────────┐
+│        BACKEND (api.ktso.net/api/)           │
+│  ┌────────┐ ┌──────────┐ ┌──────────────┐  │
+│  │ Parser │ │ Rate     │ │ KQXS         │  │
+│  │ Engine │ │ Engine   │ │ (kết quả XS) │  │
+│  └────────┘ └──────────┘ └──────────────┘  │
+│  ┌────────┐ ┌──────────┐ ┌──────────────┐  │
+│  │ Agent  │ │ USDT     │ │ Bot TG       │  │
+│  │ System │ │ Wallet   │ │ (3 miền)     │  │
+│  └────────┘ └──────────┘ └──────────────┘  │
+│  ┌─────────────────────────────────────────┐│
+│  │ Overpoint + Chặn Số Kẹt + Config Deal  ││
+│  └─────────────────────────────────────────┘│
+└──────────────────┬──────────────────────────┘
+                   ↕
+┌──────────────────┴──────────────────────────┐
+│             INFRASTRUCTURE                   │
+│  Cloudflare · Pusher · Firebase · Rollbar   │
+│  RevenueCat · AdMob · Facebook Ads          │
+└─────────────────────────────────────────────┘
+</pre>
+</div>
+
+<div class="footer">
+<p>🦊 <strong>Xổ Số Mệnh Đề — Blueprint Premium</strong></p>
+<p>Reverse engineered by Tiểu Tâm | Yêu cầu bởi anh Nấng</p>
+<p>Source: APK com.kts.monitor v1.0.5 + Web SPA app.ktso.net (app.js 6845bfd7)</p>
+<p>Ngày phân tích: 13-14/03/2026</p>
+</div>
+
+</body>
+</html>
